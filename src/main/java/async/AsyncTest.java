@@ -26,12 +26,12 @@ class AsyncTest {
     // scala stream of data to find the ceo
 
     Stream<Ceo> ceoStream = Stream.ofAll(ceos);
-    return CompletableFuture.supplyAsync(() -> ceoStream.find(ceo -> ceo.id.equals(ceo_id)).orElse(Option.none()));
+    return CompletableFuture.supplyAsync(() -> ceoStream.find(ceo -> ceo.getId().equals(ceo_id)).orElse(Option.none()));
   }
 
   public static CompletableFuture<Option<Enterprise>> getEnterpriseByCeoId(String ceo_id) {
     Stream<Enterprise> enterpriseStream = Stream.ofAll(enterprises);
-    return CompletableFuture.supplyAsync(() -> enterpriseStream.find(enterprise -> enterprise.ceo_id.equals(ceo_id)).orElse(Option.none()));
+    return CompletableFuture.supplyAsync(() -> enterpriseStream.find(enterprise -> enterprise.getCeo_id().equals(ceo_id)).orElse(Option.none()));
   }
 
   public static CompletableFuture<Tuple2<Option<Ceo>, Option<Enterprise>>> getCEOAndEnterprise(String ceo_id) {

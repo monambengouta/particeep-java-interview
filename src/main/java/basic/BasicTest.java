@@ -12,8 +12,8 @@ public class BasicTest {
    * alse return None in case of errors
    */
   public static Option<Integer> power(Integer i, Integer n) {
-    // n should not pass integer length
-    if(n >31){
+    // n should not pass integer max value 2^31-1
+    if(n >32){
       return Option.none();
     }
 
